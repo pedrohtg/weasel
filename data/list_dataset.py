@@ -404,7 +404,7 @@ class ListDataset(data.Dataset):
     # Function to load images and masks
     # May need adaptation to your data
     # Returns: img, mask, (path_to_img, img_filename)
-    def getData(self, index):
+    def get_data(self, index):
         img_path, msk_path = self.imgs[index]
 
         # Reading images.
@@ -458,7 +458,7 @@ class ListDataset(data.Dataset):
 
     def __getitem__(self, index):
 
-        img, msk, spl = self.getData(index)
+        img, msk, spl = self.get_data(index)
             
         if self.sparsity_mode == 'random':
             

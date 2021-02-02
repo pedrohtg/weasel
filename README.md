@@ -27,7 +27,8 @@ To install, simply clone this repository with `git clone https://github.com/pedr
 Adjust the configurations in the `config.ini` file, and eventually the class _ListDataset_ in the [list_dataset.py](data/list_dataset.py) file, if using different datasets.
 
 ## Train
-To reproduce the experiments in the paper, firstly download the Medical Metatrain Dataset in link_to, and then setup the default root path in the `list_dataset.py`.
+Due to licensing we cannot provide direct acess to the datasets used, but mostly are publicly available upon request to owners.
+With your datasets downloaded, and correctly setup (more info on [data](data)), set the default root path in the `list_dataset.py`.
 Then check the configurations in `config.ini` file, lastly run the train script with:
 ```
 python train_weasel.py
