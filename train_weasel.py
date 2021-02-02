@@ -27,7 +27,7 @@ from utils import *
 cudnn.benchmark = True
 
 settings = Config()
-general_params, fewshot_params, task_dicts, args, datainfo = settings['GENERAL'], settings['FEW-SHOT'], settings['TASKS'], settings['TRAINING'], settings['DATA']
+general_params, fewshot_params, task_dicts, args, datainfo = settings['GENERAL'], settings['FEW-SHOT'], settings['TASKS']['task_dicts'], settings['TRAINING'], settings['DATA']
 
 # Predefining directories.
 ckpt_path = general_params['ckpt_path']
