@@ -10,9 +10,6 @@ from torchmeta import modules
 
 from collections import OrderedDict
 
-import list_dataset
-from torch.utils.data import DataLoader
-
 def check_mkdir(dir_name):
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
