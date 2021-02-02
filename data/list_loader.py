@@ -1,4 +1,4 @@
-import list_dataset
+from data import list_dataset
 from torch.utils.data import DataLoader
 
 class ListLoader(object):
