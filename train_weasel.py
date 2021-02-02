@@ -75,7 +75,7 @@ def main(args):
         task_name,
         fold_name,
         resize_to,
-        args)
+        args, imgtype=datainfo['imgtype'])
     
     # Setting optimizer.
     meta_optimizer = optim.Adam([
