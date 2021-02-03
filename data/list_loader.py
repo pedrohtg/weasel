@@ -1,4 +1,4 @@
-from data import list_dataset
+from .list_dataset import ListDataset
 from torch.utils.data import DataLoader
 
 class ListLoader(object):
@@ -34,10 +34,10 @@ def get_tune_loaders(shots, points, contours, grid, regions, skels, data_name, t
     for n_shots in shots:
         for sparsity in points:
             
-            tune_train_points_set = list_dataset.ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='points', sparsity_param=sparsity, imgtype=imgtype)
+            tune_train_points_set = ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='points', sparsity_param=sparsity, imgtype=imgtype)
             tune_train_points_loader = DataLoader(tune_train_points_set, batch_size=args['batch_size'], num_workers=args['num_workers'], shuffle=True)
             
-            tune_test_points_set = list_dataset.ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
+            tune_test_points_set = ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
             tune_test_points_loader = DataLoader(tune_test_points_set, batch_size=1, num_workers=args['num_workers'], shuffle=False)
             
             points_loader.append({
@@ -52,10 +52,10 @@ def get_tune_loaders(shots, points, contours, grid, regions, skels, data_name, t
     for n_shots in shots:
         for sparsity in contours:
             
-            tune_train_contours_set = list_dataset.ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='contours', sparsity_param=sparsity, imgtype=imgtype)
+            tune_train_contours_set = ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='contours', sparsity_param=sparsity, imgtype=imgtype)
             tune_train_contours_loader = DataLoader(tune_train_contours_set, batch_size=args['batch_size'], num_workers=args['num_workers'], shuffle=True)
             
-            tune_test_contours_set = list_dataset.ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
+            tune_test_contours_set = ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
             tune_test_contours_loader = DataLoader(tune_test_contours_set, batch_size=1, num_workers=args['num_workers'], shuffle=False)
             
             contours_loader.append({
@@ -70,10 +70,10 @@ def get_tune_loaders(shots, points, contours, grid, regions, skels, data_name, t
     for n_shots in shots:
         for sparsity in grid:
             
-            tune_train_grid_set = list_dataset.ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='grid', sparsity_param=sparsity, imgtype=imgtype)
+            tune_train_grid_set = ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='grid', sparsity_param=sparsity, imgtype=imgtype)
             tune_train_grid_loader = DataLoader(tune_train_grid_set, batch_size=args['batch_size'], num_workers=args['num_workers'], shuffle=True)
             
-            tune_test_grid_set = list_dataset.ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
+            tune_test_grid_set = ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
             tune_test_grid_loader = DataLoader(tune_test_grid_set, batch_size=1, num_workers=args['num_workers'], shuffle=False)
             
             grid_loader.append({
@@ -88,10 +88,10 @@ def get_tune_loaders(shots, points, contours, grid, regions, skels, data_name, t
     for n_shots in shots:
         for sparsity in regions:
             
-            tune_train_regions_set = list_dataset.ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='regions', sparsity_param=sparsity, imgtype=imgtype)
+            tune_train_regions_set = ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='regions', sparsity_param=sparsity, imgtype=imgtype)
             tune_train_regions_loader = DataLoader(tune_train_regions_set, batch_size=args['batch_size'], num_workers=args['num_workers'], shuffle=True)
 
-            tune_test_regions_set = list_dataset.ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
+            tune_test_regions_set = ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
             tune_test_regions_loader = DataLoader(tune_test_regions_set, batch_size=1, num_workers=args['num_workers'], shuffle=False)
             
             regions_loader.append({
@@ -106,10 +106,10 @@ def get_tune_loaders(shots, points, contours, grid, regions, skels, data_name, t
     for n_shots in shots:
         for sparsity in skels:
             
-            tune_train_skels_set = list_dataset.ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='skels', sparsity_param=sparsity, imgtype=imgtype)
+            tune_train_skels_set = ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='skels', sparsity_param=sparsity, imgtype=imgtype)
             tune_train_skels_loader = DataLoader(tune_train_skels_set, batch_size=args['batch_size'], num_workers=args['num_workers'], shuffle=True)
             
-            tune_test_skels_set = list_dataset.ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
+            tune_test_skels_set = ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
             tune_test_skels_loader = DataLoader(tune_test_skels_set, batch_size=1, num_workers=args['num_workers'], shuffle=False)
             
             skels_loader.append({
@@ -124,10 +124,10 @@ def get_tune_loaders(shots, points, contours, grid, regions, skels, data_name, t
     for n_shots in shots:
         
         # Setting dense dataset.
-        tune_train_dense_set = list_dataset.ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='dense', imgtype=imgtype)
+        tune_train_dense_set = ListDataset('tune_train', data_name, task_name, fold_name, resize_to, num_shots=n_shots, sparsity_mode='dense', imgtype=imgtype)
         tune_train_dense_loader = DataLoader(tune_train_dense_set, batch_size=args['batch_size'], num_workers=args['num_workers'], shuffle=True)
         
-        tune_test_dense_set = list_dataset.ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
+        tune_test_dense_set = ListDataset('tune_test', data_name, task_name, fold_name, resize_to, num_shots=-1, sparsity_mode='dense', imgtype=imgtype)
         tune_test_dense_loader = DataLoader(tune_test_dense_set, batch_size=1, num_workers=args['num_workers'], shuffle=False)
         
         dense_loader.append({
