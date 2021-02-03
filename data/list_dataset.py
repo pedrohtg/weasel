@@ -53,7 +53,7 @@ annot_types = ['points', 'regions', 'skels', 'contours', 'grid', 'dense', 'rando
 # Class that reads a sequence of image paths from a text file and creates a data.Dataset with them.
 class ListDataset(data.Dataset):
     
-    def __init__(self, mode, dataset, task, fold, resize_to, num_shots=5, sparsity_mode='dense', sparsity_param=None, imgtype='med'):
+    def __init__(self, mode, dataset, task, fold, resize_to, num_shots=5, sparsity_mode='dense', sparsity_param=None, imgtype='med', make=True):
         
         assert sparsity_mode in annot_types, "{} annotation type not supported, must be one of following {}.".format(sparsity_mode, annot_types)
 
@@ -73,14 +73,16 @@ class ListDataset(data.Dataset):
         self.imgtype = imgtype
         
         self.sparsity_mode_list = ['points', 'contours', 'grid', 'regions', 'skels']
-        
-        # Creating list of paths.
-        self.imgs = self.make_dataset()
-        
-        # Check for consistency in list.
-        if len(self.imgs) == 0:
+        self.imgs = None
+
+        if make:
+            # Creating list of paths.
+            self.imgs = self.make_dataset()
             
-            raise (RuntimeError('Found 0 images, please check the data set'))
+            # Check for consistency in list.
+            if len(self.imgs) == 0:
+                
+                raise (RuntimeError('Found 0 images, please check the data set'))
     
     # Function that create the list of pairs (img_path, mask_path)
     # Adapt this function for your dataset and fold structure
