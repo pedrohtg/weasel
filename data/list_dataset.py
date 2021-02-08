@@ -100,8 +100,8 @@ class ListDataset(data.Dataset):
             mode_str = 'tst' if self.imgtype == 'med' else 'val'
 
         # Joining input paths.
-        img_path = os.path.join(root, self.dataset, 'images')
-        msk_path = os.path.join(root, self.dataset, 'ground_truths', self.task)
+        img_path = os.path.join(self.root, self.dataset, 'images')
+        msk_path = os.path.join(self.root, self.dataset, 'ground_truths', self.task)
 
         # Reading paths from file.
         data_list = []

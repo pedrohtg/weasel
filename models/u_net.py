@@ -4,9 +4,18 @@ from torch import nn
 
 from torchmeta import modules
 
-from utils import initialize_weights
-
 from collections import OrderedDict
+
+def initialize_weights(*models):
+    for model in models:
+        for module in model.modules():
+            if isinstance(module, nn.Conv2d) or isinstance(module, nn.Linear) or isinstance(module, modules.MetaConv2d) or isinstance(module, modules.MetaLinear):
+                nn.init.kaiming_normal_(module.weight)
+                if module.bias is not None:
+                    module.bias.data.zero_()
+            elif isinstance(module, nn.BatchNorm2d) or isinstance(module, modules.MetaBatchNorm2d):
+                module.weight.data.fill_(1)
+                module.bias.data.zero_()
 
 class MetaConvTranspose2d(nn.ConvTranspose2d, modules.MetaModule):
     __doc__ = nn.ConvTranspose2d.__doc__
