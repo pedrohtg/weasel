@@ -1,5 +1,9 @@
-# Learning to Segment Medical Images from Few-Shot Sparse Labels - WeaSeL
+# Weakly Supervised Few-Shot Segmentation Via Meta-Learning - WeaSeL/ProtoSeg
 WeaSeL (Weakly-supervised Segmentation Learning), is a method for few-shot semantic segmentation from sparse labels.
+This repository included the implementation of the WeaSeL method and the ProtoSeg method. 
+
+_We also included our implementation of the Guided Networks._
+
 The paper where this method is presented was published in __
 
 This is a **Pytorch** implementation.
@@ -26,12 +30,18 @@ To install, simply clone this repository with `git clone https://github.com/pedr
 ### Config
 Adjust the configurations in the `config.ini` file, and eventually the class _ListDataset_ in the [list_dataset.py](data/list_dataset.py) file, if using different datasets.
 
+## Datasets
+Due to licensing we cannot provide direct acess to the medical datasets used, but mostly are publicly available upon request to owners.
+
+The agricultural datasets, Brazilian Coffee and Orange Orchards, can be downloaded in this [link](http://patreo.dcc.ufmg.br/2022/03/23/brazilian-coffee-and-orange-datasets/).
+
 ## Train
-Due to licensing we cannot provide direct acess to the datasets used, but mostly are publicly available upon request to owners.
 With your datasets downloaded, and correctly setup (more info on [data](data)), set the default root path in the `list_dataset.py`.
 Then check the configurations in `config.ini` file, lastly run the train script with:
 ```
 python train_weasel.py
+       train_protoseg.py
+       train_guided.py
 ```
 
 ## Citation
