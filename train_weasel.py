@@ -115,43 +115,6 @@ def main(args):
             run_sparse_tuning(loader_dict, net, meta_optimizer, epoch, task_name)
             
         scheduler.step()
-        
-def prepare_meta_batch(meta_train_set, meta_test_set, index):
-    
-    # Acquiring training and test data.
-    x_train = []
-    y_train = []
-    
-    x_test = []
-    y_test = []
-    
-    perm_train = torch.randperm(len(meta_train_set[index])).tolist()
-    perm_test = torch.randperm(len(meta_test_set[index])).tolist()
-    
-    for b in range(args['batch_size']):
-        
-        d_tr = meta_train_set[index][perm_train[b]]
-        d_ts = meta_test_set[index][perm_test[b]]
-        
-        x_tr = d_tr[0].cuda()
-        y_tr = d_tr[2].cuda()
-        
-        x_ts = d_ts[0].cuda()
-        y_ts = d_ts[1].cuda()
-        
-        x_train.append(x_tr)
-        y_train.append(y_tr)
-        
-        x_test.append(x_ts)
-        y_test.append(y_ts)
-        
-    x_train = torch.stack(x_train, dim=0)
-    y_train = torch.stack(y_train, dim=0)
-    
-    x_test = torch.stack(x_test, dim=0)
-    y_test = torch.stack(y_test, dim=0)
-    
-    return x_train, y_train, x_test, y_test
 
 # Training function.
 def meta_train_test(meta_train_set, meta_test_set, net, meta_optimizer, epoch, save_model, args):
@@ -185,7 +148,7 @@ def meta_train_test(meta_train_set, meta_test_set, net, meta_optimizer, epoch, s
         
         for index in indices:
             
-            x_tr, y_tr, x_ts, y_ts = prepare_meta_batch(meta_train_set, meta_test_set, index)
+            x_tr, y_tr, x_ts, y_ts = prepare_meta_batch(meta_train_set, meta_test_set, index, args['batch_size'])
             
             x_train.append(x_tr)
             y_train.append(y_tr)
