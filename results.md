@@ -39,7 +39,6 @@ All Results from our paper "Weakly Supervised Few-Shot Segmentation Via Meta-Lea
 ![nih_labeled_lungs_results](./figs/nih_labeled_lungs_results_v4.png "Jaccard score of experiments with NIH Labeled Lungs task.")
 > Jaccard score of experiments with _NIH Labeled Lungs_ task.
 
-<br><br>
 
 ### MXR Datasets
 
@@ -61,7 +60,6 @@ All Results from our paper "Weakly Supervised Few-Shot Segmentation Via Meta-Lea
 ![inbreast_pectoral_results](./figs/inbreast_pectoral_results_v4.png "Jaccard score of experiments with INBreast Pectoral Muscle task.")
 > Jaccard score of experiments with _INBreast Pectoral Muscle_ task.
 
-<br><br>
 
 ### DXR Datasets
 
@@ -73,7 +71,6 @@ All Results from our paper "Weakly Supervised Few-Shot Segmentation Via Meta-Lea
 ![ufba_teeth_results](./figs/ufba_teeth_results_v4.png "Jaccard score of experiments with IVisionLab Teeth task.")
 > Jaccard score of experiments with _IVisionLab Teeth_ task.
 
-<br><br>
 
 ## Remote Sensing Results
 
