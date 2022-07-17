@@ -85,7 +85,7 @@ def main(args):
     # Setting network architecture.
     if (conv_name == 'unet'):
         feat_dim = 32  
-        model = UNet(datainfo['num_channels'], datainfo['num_class']).cuda()
+        model = UNet(datainfo['num_channels'], datainfo['num_class'], prototype=True).cuda()
 
         # Creating average pooler.
         pool = nn.AdaptiveAvgPool2d((1, 1))
