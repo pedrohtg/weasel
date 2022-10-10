@@ -4,7 +4,7 @@ This repository included the implementation of the WeaSeL method and the ProtoSe
 
 _We also included our implementation of the Guided Networks._
 
-The paper where this method is presented was published in __
+The paper where this method is presented was published in 2021 34th SIBGRAPI Conference on Graphics, Patterns and Images (SIBGRAPI)/IEEE Transactions on Multimedia
 
 This is a **Pytorch** implementation.
 
@@ -47,7 +47,22 @@ python train_weasel.py
 ## Citation
 If you use this code, please cite:
 ```
-bibtex citation
+@article{gama2022weakly,
+  title={Weakly Supervised Few-Shot Segmentation Via Meta-Learning},
+  author={Gama, Pedro Henrique Targino and Oliveira, Hugo Neves and Marcato, Jose and Dos Santos, Jefersson},
+  journal={IEEE Transactions on Multimedia},
+  year={2022},
+  publisher={IEEE}
+}
+
+@inproceedings{gama2021learning,
+  title={Learning to Segment Medical Images from Few-Shot Sparse Labels},
+  author={Gama, Pedro HT and Oliveira, Hugo and dos Santos, Jefersson A},
+  booktitle={2021 34th SIBGRAPI Conference on Graphics, Patterns and Images (SIBGRAPI)},
+  pages={89--96},
+  year={2021},
+  organization={IEEE}
+}
 ```
 
 #### Contact us
